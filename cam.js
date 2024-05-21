@@ -6,7 +6,12 @@ var context = canva.getContext('2d');
 function getvid(){
     navigator.mediaDevices.getUserMedia({video:true,audio:false})
     .then((localmedia) => {
-        video.src=window.URL && window.URL.createObjectURL(localmedia)
+        if (window.URL && window.URL.createObjectURL) {
+            const videoURL = URL.createObjectURL(localmedia);
+            video.src = videoURL;
+        } else {
+            console.error('Your browser does not support createObjectURL');
+        }
         video.play()
     }).catch((err) => {
           window.alert(err)
