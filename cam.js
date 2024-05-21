@@ -4,7 +4,7 @@ const strip=document.querySelector(".strip")
 var context = canva.getContext('2d');
 
 function getvid(){
-    navigator.mediaDevice.getUserMedia({video:true,audio:false})
+    navigator.mediaDevices.getUserMedia({video:true,audio:false})
     .then((localmedia) => {
         video.src=window.URL.createObjectURL(localmedia)
         video.play()
