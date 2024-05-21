@@ -6,7 +6,7 @@ var context = canva.getContext('2d');
 function getvid(){
     navigator.mediaDevices.getUserMedia({video:true,audio:false})
     .then((localmedia) => {
-        video.src=window.URL.createObjectURL(localmedia)
+        video.src=window.URL && window.URL.createObjectURL(localmedia)
         video.play()
     }).catch((err) => {
           window.alert(err)
