@@ -7,7 +7,7 @@ function getvid(){
     navigator.mediaDevices.getUserMedia({video:true,audio:false})
     .then((localmedia) => {
         if (window.URL && window.URL.createObjectURL) {
-            const videoURL = URL.createObjectURL(localmedia);
+            const videoURL = window.URL.createObjectURL(localmedia);
             video.src = videoURL;
         } else {
             console.error('Your browser does not support createObjectURL');
